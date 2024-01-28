@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Color(0xFF4CAF50), Color(0xFF2196F3)], // Adjust colors as needed
+            // colors: [Colors.blue, Colors.purple]
           ),
         ),
         child: Center(
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Project Ideation Hub',
+                  'Alt Explorer',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 28.0,

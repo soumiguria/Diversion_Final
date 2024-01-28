@@ -11,6 +11,8 @@ class FutureAnalysisPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Alt Explorer'),
+        // backgroundColor: Colors.purple,
+        // elevation: 0,
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -20,6 +22,7 @@ class FutureAnalysisPage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [Color(0xFF4CAF50), Color(0xFF2196F3)],
+              // colors: [Colors.purple, Colors.blue]
             ),
           ),
           child: Padding(
@@ -81,7 +84,7 @@ class FutureAnalysisPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MarketPotentialPage()),
+                            MaterialPageRoute(builder: (context) => RevenueModelPage()),
                           );
                         },
                       ),

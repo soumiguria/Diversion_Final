@@ -15,7 +15,7 @@ class GuidancePage extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.blue, Colors.purple], // Set your desired gradient colors
+              colors: [Colors.purple, Colors.blue], // Set your desired gradient colors
             ),
           ),
           padding: EdgeInsets.all(16.0),

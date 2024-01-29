@@ -30,7 +30,6 @@ class HomePage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Color(0xFF4CAF50), Color(0xFF2196F3)], // Adjust colors as needed
-            // colors: [Colors.blue, Colors.purple]
           ),
         ),
         child: Center(
@@ -57,17 +56,25 @@ class HomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => FutureAnalysisPage()),
                     );
                   },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.blue.shade800),
-                    side: MaterialStateProperty.all<BorderSide>(BorderSide(color: Colors.white, width: 2.0),
-      //                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-      // RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.circular(10.0), // Adjust the border radius as needed
-      // ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue.shade800,
+                    side: BorderSide(color: Colors.white, width: 2.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
-                    // Change the color to the desired one, for example, Colors.red
+                    elevation: 5, // Adjust the elevation for the shadow
                   ),
-                  child: Text('Generate Analysis'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                    child: Text(
+                      'Generate Analysis',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

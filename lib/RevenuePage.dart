@@ -14,7 +14,7 @@ class RevenueModelPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.blue, Colors.purple], // Set your gradient colors
+            colors: [const Color.fromARGB(255, 214, 116, 231), Color.fromARGB(255, 230, 230, 142)], // Set your gradient colors
           ),
         ),
         child: Padding(

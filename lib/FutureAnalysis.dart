@@ -192,6 +192,3 @@ class CategoryContainer extends StatelessWidget {
     );
   }
 }
-
-
-// Define other pages (CompetitorsPage, MarketTrendsPage, etc.) similar to FutureAnalysisPage

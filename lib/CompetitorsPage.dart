@@ -8,16 +8,16 @@ class CompetitorsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   title: Text('Competitors Page'),
-        // ),
+        appBar: AppBar(
+          title: Text('Competitors Page'),
+        ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               // colors: [Colors.blue, Colors.green], // You can change these colors
-              colors: [Colors.blue, Colors.purple]
+              colors: [const Color.fromARGB(255, 214, 116, 231), Color.fromARGB(255, 230, 230, 142)]
             ),
           ),
           child: Padding(

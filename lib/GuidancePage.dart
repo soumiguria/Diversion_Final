@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class GuidancePage extends StatelessWidget {
-  const GuidancePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +13,7 @@ class GuidancePage extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.purple, Colors.blue], // Set your desired gradient colors
+              colors: [Colors.purple, Colors.blue],
             ),
           ),
           padding: EdgeInsets.all(16.0),
@@ -26,27 +24,31 @@ class GuidancePage extends StatelessWidget {
                 'Explore the technologies that can be used for building the project.',
                 'assets/images/technologies.jpg',
                 () => _navigateToInformation(context, 'Technologies Information'),
+                gradientColors: [Colors.yellow, Colors.green],
               ),
-              SizedBox(height: 16.0), // Add spacing between the containers
+              SizedBox(height: 16.0),
               _buildClickableContainer(
                 'API Endpoints',
                 'Discover necessary API endpoints to refer to for building the project.',
                 'assets/images/api-endpoints.jpg',
                 () => _navigateToInformation(context, 'API Endpoints Information'),
+                gradientColors: [Colors.yellow, Colors.green],
               ),
-              SizedBox(height: 16.0), // Add spacing between the containers
+              SizedBox(height: 16.0),
               _buildClickableContainer(
                 'Setup Details',
                 'Learn how to get started with setting up the application.',
                 'assets/images/setup_details.jpg',
                 () => _navigateToInformation(context, 'Setup Details Information'),
+                gradientColors: [Colors.yellow, Colors.green],
               ),
-              SizedBox(height: 16.0), // Add spacing between the containers
+              SizedBox(height: 16.0),
               _buildClickableContainer(
                 'Winning Strategies',
                 'Strategies for making the idea stand out in the market and its unique selling points.',
                 'assets/images/winning_strategies.png',
                 () => _navigateToInformation(context, 'Winning Strategies Information'),
+                gradientColors: [Colors.yellow, Colors.green],
               ),
             ],
           ),
@@ -55,23 +57,27 @@ class GuidancePage extends StatelessWidget {
     );
   }
 
-  Widget _buildClickableContainer(String title, String description, String imagePath, VoidCallback onTap) {
+  Widget _buildClickableContainer(String title, String description, String imagePath, VoidCallback onTap, {List<Color>? gradientColors}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: double.infinity, // Cover the whole width
+        width: double.infinity,
         padding: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: Colors.white, // Set white background color
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: gradientColors ?? [Colors.white, Colors.white], // Default gradient colors
+          ),
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
           children: [
             Image.asset(
               imagePath,
-              height: 200, // Set the desired height
+              height: 200,
               width: double.infinity,
-              fit: BoxFit.cover, // Make the image cover the whole container
+              fit: BoxFit.cover,
             ),
             SizedBox(height: 8.0),
             Text(
@@ -91,8 +97,6 @@ class GuidancePage extends StatelessWidget {
   }
 
   void _navigateToInformation(BuildContext context, String information) {
-    // In a real application, you would navigate to the corresponding information screen.
-    // For simplicity, this example just prints the information to the console.
-    print('Navigating to $information');
+    Navigator.of(context).pushNamed('/$information');
   }
 }

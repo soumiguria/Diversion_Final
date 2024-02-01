@@ -6,6 +6,11 @@ import 'package:diversion/MarketTrendsPage.dart';
 import 'package:flutter/material.dart';
 
 class FutureAnalysisPage extends StatelessWidget {
+
+  final String response;
+
+  FutureAnalysisPage({required this.response});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +43,9 @@ class FutureAnalysisPage extends StatelessWidget {
                     // ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Ahh!!! your idea sounds great... let's see if we can make any improvements based on the following things...",
-                        style: TextStyle(color: Colors.white, fontSize: 16,),
+                      child: Text(
+                        response,
+                        style: TextStyle(fontSize: 16.0, color: Colors.white),
                       ),
                     )
                   ],

@@ -1,13 +1,10 @@
 import 'dart:convert';
-
 import 'package:diversion/CompetitorsPage.dart';
 import 'package:diversion/EnhancingOpportunityPage.dart';
 import 'package:diversion/GuidancePage.dart';
 import 'package:diversion/RevenuePage.dart';
 import 'package:diversion/MarketTrendsPage.dart';
-import 'package:diversion/components/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
 class FutureAnalysisPage extends StatelessWidget {
@@ -141,7 +138,7 @@ class FutureAnalysisPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => RevenueModelPage()),
+                            MaterialPageRoute(builder: (context) => RevenueModelPage(userPrompt: '',)),
                           );
                         },
                       ),

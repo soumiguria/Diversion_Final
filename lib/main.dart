@@ -201,13 +201,20 @@ import 'dart:convert';
 import 'package:diversion/FutureAnalysis.dart';
 import 'package:diversion/SplashScreen.dart';
 import 'package:diversion/api_key.dart';
+import 'package:diversion/components/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await dotenv.load();
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ChatProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -984,7 +991,7 @@ class _HomePageState extends State<HomePage> {
   bool generatedResponse = false;
   String responseFromGPT = '';
 
-  void onSendMessage() async {
+  void onSendMessage(BuildContext context) async {
     Message userMessage = Message(
       text: _textEditingController.text,
       isMe: true,
@@ -1004,6 +1011,10 @@ class _HomePageState extends State<HomePage> {
       generatedResponse = true;
       responseFromGPT = response;
     });
+
+    ChatProvider chatProvider = Provider.of<ChatProvider>(context, listen: false);
+    chatProvider.setUserPrompt(userMessage.text);
+
   }
 
     Future<String> sendMessageToChatGpt(String userMessage) async {
@@ -1118,7 +1129,13 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: generatedResponse ? onProceed : onSendMessage,
+                      
+                      // onPressed: generatedResponse ? onProceed : onSendMessage as void Function(),
+
+                      // onPressed: generatedResponse ? onProceed : onSendMessage,
+
+                      onPressed: generatedResponse ? () => onProceed() : () => onSendMessage(context),
+
                       style: ElevatedButton.styleFrom(
                         primary: Colors.blue.shade800,
                         side: BorderSide(color: Colors.white, width: 2.0),

@@ -20,12 +20,12 @@
 //       title: 'Project Ideation',
 //       home: SplashScreen(),
 
-//       routes: {
-//     '/Technologies Information': (context) => Technologies(),
-//     '/API Endpoints Information': (context) => ApiEndpoints(),
-//     '/Setup Details Information': (context) => SetupDetails(),
-//     '/Winning Strategies Information': (context) => WinningStrategies(),
-//   },
+  //     routes: {
+  //   '/Technologies Information': (context) => Technologies(),
+  //   '/API Endpoints Information': (context) => ApiEndpoints(),
+  //   '/Setup Details Information': (context) => SetupDetails(),
+  //   '/Winning Strategies Information': (context) => WinningStrategies(),
+  // },
 
 //     );
 //   }
@@ -198,8 +198,12 @@
 
 
 import 'dart:convert';
+import 'package:diversion/APIEndpoints.dart';
 import 'package:diversion/FutureAnalysis.dart';
+import 'package:diversion/SetupDetails.dart';
 import 'package:diversion/SplashScreen.dart';
+import 'package:diversion/Technologies.dart';
+import 'package:diversion/WinningStrategies.dart';
 import 'package:diversion/api_key.dart';
 import 'package:diversion/components/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -224,6 +228,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Project Ideation',
       home: SplashScreen(),
+
+       routes: {
+    '/Technologies Information': (context) => Technologies(),
+    '/API Endpoints Information': (context) => ApiEndpoints(),
+    '/Setup Details Information': (context) => SetupDetails(),
+    '/Winning Strategies Information': (context) => WinningStrategies(),
+  },
+
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:diversion/EnhancingOpportunityPage.dart';
 import 'package:diversion/GuidancePage.dart';
 import 'package:diversion/RevenuePage.dart';
 import 'package:diversion/MarketTrendsPage.dart';
+import 'package:diversion/api_key.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -41,7 +42,7 @@ class FutureAnalysisPage extends StatelessWidget {
       uri,
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR_OPENAI_API_KEY", // Replace with your OpenAI API key
+        "Authorization": "Bearer ${APIKey.apiKey}", // Replace with your OpenAI API key
       },
       body: json.encode(body),
     );
@@ -121,12 +122,18 @@ class FutureAnalysisPage extends StatelessWidget {
                     Expanded(
                       child: CategoryContainer(
                         label: 'Market Trends and Potential',
-                        imageAsset: 'assets/images/market_potential_image.jpeg', // Replace with your image asset
-                        onPressed: () {
-                          Navigator.push(
+                        imageAsset: 'assets/images/market_potential_image.jpeg',
+                        onPressed: () async {
+                          // Pass the context and user prompt to MarketTrendsPage
+                          var result = await Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MarketTrendsPage()),
+                            MaterialPageRoute(
+                              builder: (context) => MarketTrendsPage(),
+                            ),
                           );
+
+                          // Handle the result if needed
+                          print(result);
                         },
                       ),
                     ),
@@ -138,7 +145,7 @@ class FutureAnalysisPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => RevenueModelPage(userPrompt: '',)),
+                            MaterialPageRoute(builder: (context) => RevenueModelPage()),
                           );
                         },
                       ),

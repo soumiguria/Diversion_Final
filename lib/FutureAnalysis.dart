@@ -14,16 +14,11 @@ class FutureAnalysisPage extends StatelessWidget {
   FutureAnalysisPage({required this.response});
 
   Future<List<String>> fetchCompetitors(String userPrompt) async {
-    // Implement your logic to fetch competitors in the background based on userPrompt
-    // For example, you can use an API call or any asynchronous operation
 
-    // Simulating a delay of 2 seconds
     await Future.delayed(Duration(seconds: 2));
 
-    // Dummy list of competitors (replace with actual data)
     List<String> competitors = ['Competitor A', 'Competitor B', 'Competitor C'];
 
-    // Run another prompt in the background based on the previous userPrompt
     String backgroundPrompt =
         "If similar products are present in the market, provide names of any five.";
 
@@ -43,7 +38,7 @@ class FutureAnalysisPage extends StatelessWidget {
       headers: {
         "Content-Type": "application/json",
         "Authorization":
-            "Bearer ${APIKey.apiKey}", // Replace with your OpenAI API key
+            "Bearer ${APIKey.apiKey}", 
       },
       body: json.encode(body),
     );
@@ -53,9 +48,7 @@ class FutureAnalysisPage extends StatelessWidget {
     String additionalResponse =
         parsedResponse['choices'][0]['message']['content'];
 
-    // Process the additionalResponse as needed
 
-    // Combine the fetched competitors and additional response
     List<String> combinedResults = [...competitors, additionalResponse];
 
     return combinedResults;
@@ -63,12 +56,9 @@ class FutureAnalysisPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String userPrompt = Provider.of<ChatProvider>(context).userPrompt;
     return Scaffold(
       appBar: AppBar(
         title: Text('Alt Explorer'),
-        // backgroundColor: Colors.purple,
-        // elevation: 0,
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -78,7 +68,6 @@ class FutureAnalysisPage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [Color(0xFF4CAF50), Color(0xFF2196F3)],
-              // colors: [Colors.purple, Colors.blue]
             ),
           ),
           child: Padding(
@@ -88,10 +77,6 @@ class FutureAnalysisPage extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    // Text(
-                    //   'Future Analysis',
-                    //   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
-                    // ),
                     Card(
                       elevation: 5,
                       margin: EdgeInsets.symmetric(vertical: 8.0),
@@ -106,7 +91,7 @@ class FutureAnalysisPage extends StatelessWidget {
                             colors: [
                               Colors.yellow,
                               Colors.green
-                            ], // Adjust these colors as needed
+                            ], 
                           ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -117,7 +102,7 @@ class FutureAnalysisPage extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 16.0,
                                 color: Colors
-                                    .black), // Adjust text color as needed
+                                    .black), 
                           ),
                         ),
                       ),
@@ -131,7 +116,7 @@ class FutureAnalysisPage extends StatelessWidget {
                       child: CategoryContainer(
                         label: 'Competitors',
                         imageAsset:
-                            'assets/images/competitors_image.jpeg', // Replace with your image asset
+                            'assets/images/competitors_image.jpeg', 
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -151,7 +136,6 @@ class FutureAnalysisPage extends StatelessWidget {
                         label: 'Market Trends and Potential',
                         imageAsset: 'assets/images/market_potential_image.jpeg',
                         onPressed: () async {
-                          // Pass the context and user prompt to MarketTrendsPage
                           var result = await Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -159,7 +143,6 @@ class FutureAnalysisPage extends StatelessWidget {
                             ),
                           );
 
-                          // Handle the result if needed
                           print(result);
                         },
                       ),
@@ -169,7 +152,7 @@ class FutureAnalysisPage extends StatelessWidget {
                       child: CategoryContainer(
                         label: 'Revenue Model',
                         imageAsset:
-                            'assets/images/revenue_model.jpeg', // Replace with your image asset
+                            'assets/images/revenue_model.jpeg', 
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -188,7 +171,7 @@ class FutureAnalysisPage extends StatelessWidget {
                       child: CategoryContainer(
                         label: 'Enhancing Opportunity',
                         imageAsset:
-                            'assets/images/enhancing_opportunity.jpeg', // Replace with your image asset
+                            'assets/images/enhancing_opportunity.jpeg', 
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -204,7 +187,7 @@ class FutureAnalysisPage extends StatelessWidget {
                       child: CategoryContainer(
                         label: 'Guidance',
                         imageAsset:
-                            'assets/images/guidance.jpeg', // Replace with your image asset
+                            'assets/images/guidance.jpeg', 
                         onPressed: () {
                           Navigator.push(
                             context,

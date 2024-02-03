@@ -40,7 +40,6 @@ class _WinningStrategiesState extends State<WinningStrategies> {
         {"role": "system", "content": backgroundPrompt},
         {"role": "user", "content": userPrompt}
       ],
-      "max_tokens": 200,
     };
 
     try {
@@ -94,9 +93,9 @@ class _WinningStrategiesState extends State<WinningStrategies> {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Colors.yellow,
-                              Colors.green.shade200,
-                              Colors.yellow
+                              Colors.yellow.shade300,
+                              Colors.green.shade300,
+                              Colors.yellow.shade300
                             ], // Adjust these colors as needed
                           ),
                           borderRadius: BorderRadius.circular(10.0),

@@ -29,7 +29,7 @@ class _ApiEndpointsState extends State<ApiEndpoints> {
   Future<String> fetchApiEndpoints(String userPrompt) async {
     // Run a background prompt to generate API endpoints based on the user input
     String backgroundPrompt =
-        "for my idea try to provide me  link of APIS  available on the internet which help me in building my app and if you are not able to provide then provide me the link of those websites where I can find APIS of my requirement easily  I don't need any real-time data, also make the links of the apis clickable so that they redirect to the respective pages: $userPrompt";
+        "for my idea try to provide me link of APIS available on the internet which help me in building my app and if you are not able to provide then provide me the link of those websites where I can find APIS of my requirement easily  I don't need any real-time data, also make the links of the apis clickable so that they redirect to the respective pages generate it in 600 words: $userPrompt";
 
     Uri uri = Uri.parse("https://api.openai.com/v1/chat/completions");
 
@@ -39,7 +39,6 @@ class _ApiEndpointsState extends State<ApiEndpoints> {
         {"role": "system", "content": backgroundPrompt},
         {"role": "user", "content": userPrompt}
       ],
-      "max_tokens": 200,
     };
 
     try {
@@ -92,24 +91,59 @@ class _ApiEndpointsState extends State<ApiEndpoints> {
   ),
   backgroundColor: Colors.blue.shade300,
 ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          padding: EdgeInsets.all(16.0),
-          child: FutureBuilder<String>(
-            future: futureApiEndpoints,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasError) {
-                return Center(child: Text('Error: ${snapshot.error}'));
-              } else {
-                return Text(
-                  snapshot.data ?? 'No data available',
-                  style: TextStyle(fontSize: 16.0),
-                );
-              }
-            },
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                const Color.fromARGB(255, 214, 116, 231),
+                Color.fromARGB(255, 230, 230, 142)
+              ],
+            ),
+          ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
+          
+              elevation: 5,
+                      margin: EdgeInsets.symmetric(vertical: 8.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+              child: Container(
+                decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.yellow.shade300,
+                              Colors.green.shade300,
+                              Colors.yellow.shade300
+                            ], // Adjust these colors as needed
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        padding: EdgeInsets.all(16.0),
+                child: FutureBuilder<String>(
+                  future: futureApiEndpoints,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(child: Text('Error: ${snapshot.error}'));
+                    } else {
+                      return Text(
+                        snapshot.data ?? 'No data available',
+                        style: TextStyle(fontSize: 16.0),
+                      );
+                    }
+                  },
+                ),
+              ),
+            ),
           ),
         ),
       ),

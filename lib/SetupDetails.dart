@@ -37,7 +37,6 @@ class _SetupDetailsState extends State<SetupDetails> {
         {"role": "system", "content": backgroundPrompt},
         {"role": "user", "content": userPrompt}
       ],
-      "max_tokens": 200,
     };
 
     try {
@@ -93,9 +92,9 @@ class _SetupDetailsState extends State<SetupDetails> {
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  Colors.yellow,
-                                  Colors.green.shade200,
-                                  Colors.yellow
+                                  Colors.yellow.shade300,
+                                  Colors.green.shade300,
+                                  Colors.yellow.shade300
                                 ], // Adjust these colors as needed
                               ),
                               borderRadius: BorderRadius.circular(10.0),

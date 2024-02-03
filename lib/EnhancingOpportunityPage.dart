@@ -142,9 +142,9 @@ class _EnhancingOpportunityPageState extends State<EnhancingOpportunityPage> {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          Colors.yellow,
-          Colors.green,
-          Colors.yellow,
+          Colors.yellow.shade300,
+          Colors.green.shade300,
+          Colors.yellow.shade300,
         ], // Adjust these colors as needed
       ),
       borderRadius: BorderRadius.circular(10.0),

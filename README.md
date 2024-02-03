@@ -35,10 +35,8 @@ The IdeaAnalyzer App is a powerful tool designed to assist users in evaluating t
 
 ### Technologies Used
 
-- Frontend: React.js
-- Backend: Node.js, Express
-- Database: MongoDB
-- External APIs: [List of APIs]
+- Frontend: flutter
+- APIs
 
 ### Setup Instructions
 
@@ -55,9 +53,5 @@ If you'd like to contribute to the development of IdeaAnalyzer, please follow th
 ## License
 
 This project is licensed under the [MIT License] - see the [LICENSE.md] file for details.
-
-## Contact
-
-For any inquiries or feedback, please contact [Your Name] at [your.email@example.com].
 
 Happy ideating and building! 🚀

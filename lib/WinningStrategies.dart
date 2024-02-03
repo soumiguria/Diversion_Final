@@ -81,40 +81,43 @@ class _WinningStrategiesState extends State<WinningStrategies> {
         ),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
-            child: Card(
-              elevation: 5,
-                      margin: EdgeInsets.symmetric(vertical: 8.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-              child: Container(
-                decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Colors.yellow.shade300,
-                              Colors.green.shade300,
-                              Colors.yellow.shade300
-                            ], // Adjust these colors as needed
-                          ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Card(
+                elevation: 5,
+                        margin: EdgeInsets.symmetric(vertical: 8.0),
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                padding: EdgeInsets.all(16.0),
-                child: FutureBuilder<String>(
-                  future: futureWinningStrategies,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}'));
-                    } else {
-                      return Text(
-                        snapshot.data ?? 'No data available',
-                        style: TextStyle(fontSize: 16.0),
-                      );
-                    }
-                  },
+                child: Container(
+                  decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.yellow.shade300,
+                                Colors.green.shade300,
+                                Colors.yellow.shade300
+                              ], // Adjust these colors as needed
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                  padding: EdgeInsets.all(16.0),
+                  child: FutureBuilder<String>(
+                    future: futureWinningStrategies,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasError) {
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      } else {
+                        return Text(
+                          snapshot.data ?? 'No data available',
+                          style: TextStyle(fontSize: 16.0),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
             ),

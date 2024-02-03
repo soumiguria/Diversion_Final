@@ -61,8 +61,30 @@ class _EnhancingOpportunityPageState extends State<EnhancingOpportunityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Enhancing Opportunities'),
+  title: Row(
+    children: <Widget>[
+      // Wrap the Image.asset with CircleAvatar to make it circular
+      CircleAvatar(
+        radius: 15,  // Adjust the radius to set the size of the circular avatar
+        backgroundColor: Colors.transparent,  // Set background color to transparent
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/splash_screen.jpeg',  // Replace with the actual path to your image
+            height: 30,  // Adjust the height as needed
+            width: 30,   // Adjust the width as needed
+          ),
+        ),
       ),
+      
+      // Add some space between the logo and title
+      SizedBox(width: 10),
+
+      // Add the title text
+      Text('Alt Explorer'),
+    ],
+  ),
+  backgroundColor: Colors.blue.shade300,
+),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(

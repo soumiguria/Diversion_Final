@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.green, Colors.yellow],
+            colors: [Colors.green.shade300, Colors.yellow.shade300],
           ),
         ),
       margin: EdgeInsets.symmetric(vertical: 10.0),
@@ -150,8 +150,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Alt Explorer'),
+  title: Row(
+    children: <Widget>[
+      // Wrap the Image.asset with CircleAvatar to make it circular
+      CircleAvatar(
+        radius: 15,  // Adjust the radius to set the size of the circular avatar
+        backgroundColor: Colors.transparent,  // Set background color to transparent
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/splash_screen.jpeg',  // Replace with the actual path to your image
+            height: 30,  // Adjust the height as needed
+            width: 30,   // Adjust the width as needed
+          ),
+        ),
       ),
+      
+      // Add some space between the logo and title
+      SizedBox(width: 10),
+
+      // Add the title text
+      Text('Alt Explorer'),
+    ],
+  ),
+  backgroundColor: Colors.blue.shade300,
+),
+
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(

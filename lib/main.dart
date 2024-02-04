@@ -79,33 +79,36 @@ class _HomePageState extends State<HomePage> {
   }
 
     Future<String> sendMessageToChatGpt(String userMessage) async {
-    String backgroundPrompt = "See you will be a model that will give answers to only a prompt when it is regarding any particular project idea which the user wants to build, assist that user with this product idea  and anything in relevance to the particular project else say \"I don't know the thing what you are asking for, but would surely love to learn about it\".the first line that should be displayed on generating the prompt should always contain an encouraging statement also tells that given idea is unique or not or already similar things are available in market and show but we are here to help you proceed give this in 100 words. Remember not to answer any thing apart from proect idea related things. Don't answer any coding question, nothing irrevent to project ideas, or startups, if that is the case I am going to behave harshly with you";
+  Uri uri = Uri.parse("https://hello-world-summer-recipe-c306.guriasoumi29.workers.dev/sendMessageToChatGpt");
 
-    Uri uri = Uri.parse("https://api.openai.com/v1/chat/completions");
+  Map<String, dynamic> body = {
+    "userMessage": userMessage,
+  };
 
-    Map<String, dynamic> body = {
-      "model": "gpt-3.5-turbo",
-      "messages": [
-        {"role": "system", "content": backgroundPrompt},
-        {"role": "user", "content": userMessage}
-      ],
-    };
-
+  try {
     final response = await http.post(
       uri,
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer ${APIKey.apiKey}",
       },
       body: json.encode(body),
     );
 
-    Map<String, dynamic> parsedResponse = json.decode(response.body);
-
-    String reply = parsedResponse['choices'][0]['message']['content'];
-
-    return reply;
+    if (response.statusCode == 200) {
+      String reply = response.body;
+      return reply;
+    } else {
+      // Handle non-200 status code
+      print("Error: ${response.statusCode}");
+      return "Error: ${response.statusCode}";
+    }
+  } catch (e) {
+    // Handle other exceptions
+    print("Error: $e");
+    return "Error: $e";
   }
+}
+
 
   void onProceed() {
     if (generatedResponse) {

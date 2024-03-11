@@ -54,4 +54,9 @@ If you'd like to contribute to the development of IdeaAnalyzer, please follow th
 
 This project is licensed under the [MIT License] - see the [LICENSE.md] file for details.
 
+##APK
+
+You can directly check the application from here
+https://drive.google.com/drive/folders/19EPyCDcBckUesNatEZbTOyKO9J9Cg1Rg?usp=sharing
+
 Happy ideating and building! 🚀
